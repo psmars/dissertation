@@ -58,7 +58,7 @@ A link is easy to type [Google](https://www.google.com/), or <http://www.icomos.
 
 # Images
 
-![Saint-Denis, France](../pics/p1.png)
+![Mountains](../pics/mountains.jpg)
 
 # Citations
 
