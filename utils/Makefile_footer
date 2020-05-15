@@ -1,0 +1,15 @@
+.PHONY: clean cleanall version
+
+clean:
+	find . -name "*~" -type f -delete
+	find . -name "*\.bak" -type f -delete
+	find . -name "*\.backup" -type f -delete
+
+cleanall:
+	find . -name "*\.pdf" -type f -delete
+	find . -name "*~" -type f -delete
+	find . -name "*\.bak" -type f -delete
+	find . -name "*\.backup" -type f -delete
+
+version:
+	@echo "pandoc:" $(PANDOCVERSION)

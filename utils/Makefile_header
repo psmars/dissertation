@@ -1,0 +1,22 @@
+DIR=/home/your_name/your_directory
+PANDOCVERSION = $(shell pandoc -v | awk 'NR==1 {print $$2}' | awk -F '.' '{print $$1}')
+GS=gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf
+
+ifeq "$(PANDOCVERSION)" "1"
+	PD=pandoc --latex-engine=xelatex --bibliography=$(DIR)/references.bib -N --template=$(DIR)/template.tex
+else
+	PD=pandoc --pdf-engine=xelatex --bibliography=$(DIR)/references.bib -N --template=$(DIR)/template.tex
+endif
+PDD=pandoc --bibliography=$(DIR)/references.bib -N
+
+HEAD=$(DIR)/latex.yaml $(DIR)/authors.yaml $(DIR)/date.yaml
+
+%.pdf: %.md    
+	$(PD) -o $@ $^    
+	$(GS) $@    
+	mv output.pdf $@    
+	$(DIR)/pdf/put-pdf $@
+
+%.docx: %.md    
+	$(PDD) -o $@ $^    
+	mv $@ $(DIR)/docx
