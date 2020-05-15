@@ -47,8 +47,8 @@ A link is easy to type [Google](https://www.google.com/), or <http://www.icomos.
 
 | Number | Name |
 |---|---|
-|x00001|DOE John|
-|x00002|DOE Jane|
+|x00001|DOE Jane|
+|x00002|DOE John|
 
 | What | Explanation |
 | ---|---:|
@@ -65,7 +65,6 @@ A link is easy to type [Google](https://www.google.com/), or <http://www.icomos.
 As you can see in @manthorpe2008, ...
 
 Manthorpe says blah [-@manthorpe2008].
-
 
 # Footnotes
 
