@@ -1,0 +1,2 @@
+#!/bin/sh
+cat | sed 's/^---.*//g;s,^#,##,g;s,title: ,# ,g'
