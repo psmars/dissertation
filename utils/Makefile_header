@@ -1,3 +1,4 @@
+DIR=/home/pierre/yunlin/thesis/dissertation/content
 PANDOCVERSION = $(shell pandoc -v | awk 'NR==1 {print $$2}' | awk -F '.' '{print $$1}')
 GS=gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf
 
@@ -14,8 +15,8 @@ HEAD=$(DIR)/latex.yaml $(DIR)/authors.yaml $(DIR)/date.yaml
 	$(PD) -o $@ $(HEAD) $^    
 	$(GS) $@    
 	mv output.pdf $@    
-	$(DIR)/pdf/put-pdf $@
+	cp $@ $(DIR)/../pdf/    
 
 %.docx: %.md    
-	$(PDD) -o $@ $^    
-	mv $@ $(DIR)/docx
+	$(PDD) -o $@ $(HEAD) $^    
+	mv $@ $(DIR)/../docx/
