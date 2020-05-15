@@ -1,4 +1,3 @@
-DIR=/home/your_name/your_directory
 PANDOCVERSION = $(shell pandoc -v | awk 'NR==1 {print $$2}' | awk -F '.' '{print $$1}')
 GS=gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf
 
@@ -12,7 +11,7 @@ PDD=pandoc --bibliography=$(DIR)/references.bib -N
 HEAD=$(DIR)/latex.yaml $(DIR)/authors.yaml $(DIR)/date.yaml
 
 %.pdf: %.md    
-	$(PD) -o $@ $^    
+	$(PD) -o $@ $(HEAD) $^    
 	$(GS) $@    
 	mv output.pdf $@    
 	$(DIR)/pdf/put-pdf $@
