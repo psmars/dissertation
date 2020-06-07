@@ -1,4 +1,4 @@
-.PHONY: clean cleanall version
+.PHONY: clean cleanall version remarks
 
 clean:
 	find . -name "*~" -type f -delete
@@ -6,10 +6,16 @@ clean:
 	find . -name "*\.backup" -type f -delete
 
 cleanall:
-	find . -name "*\.pdf" -type f -delete
+	find . -name "*\.pdf" -type f | sed '/\/pdf\//d;/\/pics\//d' > prov
+	cat prov | xargs rm
+	rm prov
 	find . -name "*~" -type f -delete
 	find . -name "*\.bak" -type f -delete
 	find . -name "*\.backup" -type f -delete
+	find . -name "auto*" -type f -delete
+
+remarks:
+	@grep -e "???" -R --include "*md" --exclude "*dissertation*" --exclude "*auto*" -n . 2> /dev/null || true
 
 version:
 	@echo "pandoc:" $(PANDOCVERSION)
