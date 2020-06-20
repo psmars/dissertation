@@ -62,9 +62,11 @@ A link is easy to type [Google](https://www.google.com/), or <http://www.icomos.
 
 # Citations
 
+That was already studied before [@manthorpe2008, pp.84--87].
+
 As you can see in @manthorpe2008, ...
 
-Manthorpe says blah [-@manthorpe2008].
+Manthorpe already explained it in -@manthorpe2008.
 
 # Footnotes
 
@@ -74,7 +76,7 @@ You don’t have to put footnotes at the end of the document. You can put them a
 
 Lorem ipsum[^1] dolor sit amet, consectetur adipiscing elit, 
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Ut enim ad minim veniam^[This is another way to use footnotes: inline footnotes], quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 Duis aute irure dolor[^t] in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 Excepteur sint occaecat cupidatat non proident,
 sunt in culpa qui officia deserunt mollit anim id est laborum.
